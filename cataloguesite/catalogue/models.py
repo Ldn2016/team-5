@@ -28,10 +28,13 @@ class Store(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 class Quantity(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)  # TODO: figure out what models.CASCADE is for
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     amount = models.IntegerField()
+
+    def __str__(self):
+        return "{} | {} | {}".format(self.store, self.item, self.amount)
