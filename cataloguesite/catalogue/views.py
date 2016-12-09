@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import CD, Book, Store, Quantity
 
 
@@ -27,5 +27,6 @@ def add_item(item_dict):
     quantity.save()
 
 
-def index(request):
-    pass
+def book_detail(request, book_id):
+    book = get_object_or_404(Book, id_number=book_id)
+    return render(request, 'catalogue/book_detail.html', {'book': book})
