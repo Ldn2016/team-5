@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import CD, Book, Store, Quantity
+from .models import Item, Store, Quantity
 
 
 def add_item(item_dict):
@@ -8,18 +8,18 @@ def add_item(item_dict):
 
     JSON objects should be formatted as so:
         {
-        "type": object type,
-        "store": store name,
-        "object": {
-                  "id_number": id_number,
-                  etc.
-                  }
+            "store": store,
+            "amount": amount,
+            "object": {
+                "kind": book/CD/whatever,
+                "title": title,
+                etc.
+            }
         }
     Add an item to the directory.
     `item_dict` should be a Python dict, not JSON.
     """
-    models_dict = {"book": Book, "cd": CD, }
-    new_item, _ = models_dict[item_dict["type"]].objects.get_or_create(**item_dict["object"])
+    new_item, _ = Item.objects.get_or_create(**item_dict["object"])
     store, _ = Store.objects.get_or_create(name=item_dict["store"])
     quantity, _ = Quantity.objects.get_or_create(item=new_item, store=store,
                                                  defaults={"amount": 0})
@@ -27,6 +27,15 @@ def add_item(item_dict):
     quantity.save()
 
 
-def book_detail(request, book_id):
-    book = get_object_or_404(Book, id_number=book_id)
-    return render(request, 'catalogue/book_detail.html', {'book': book})
+def item_detail(request, item_id):
+    """
+    Get detail for a specific book.
+    """
+    item = get_object_or_404(Item, id_number=item_id)
+    return render(request, 'catalogue/item_detail.html', {'item': item})
+
+def store_list(request):
+    """
+    List all the stores that exist.
+    """
+
