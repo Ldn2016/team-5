@@ -1,0 +1,68 @@
+British Heart Foundation:
+
+Building Customer Loyalty
+
+Consider retailing at scale: 60 million visitors
+18 million transactions
+72,000 tons of goods resold
+2 million calls - analog
+300,000 online collection requests py (basic but evolving)
+logistics - man with a van
+1.7 million units of goods collected py.
+3,000 paid staff in stores
+22,000 volunteers - both ends of age spectrum. Young (getting experience on cv) and old (retired, on their own and wanting social environment and keeping active. Not technical people so harder to change processes. In-store tech is great but consider barriers and making the tech simple.)
+There are three key audiences - donors, shoppers and corporate
+Corporate donors have very little tech - one-off call. 22,000 ink cartridges from RAF or 3,000 desks from tesco. Is there tech that makes it easier for corporate to know they can donate stuff? Can we use tech to manage processes? Make it easier to get rid of stuff cheaply? Promote it - eco-friendly and good pr.
+Charity shops have huge environmental benefit. Idea - make calculator to calculate environmental benefit.
+Changing expectations - using apps to build loyalty. See mothercare app - takes people through pregnancy & parenthood process. dulux app - virtually paint home. waitrose - iBeacon to deliver price promotions. (App idea - match customers to donations?)
+Differ from most retailers - different staff, gift-aid, donations.
+Gift aid - time consuming. Sync telling donors with the amount they gift-aided. (Gamify gift-aiding?)
+Market research - different audiences - donor (focused on convenience, not necessairly connected to cause but sometimes, high income), shopper (joy of discovery, low income, skew into older age group).
+Corporate - working with universities. Taking from younger people via universities. Larger items & smaller items. (High street and furniture stores). Books, music, clothing etc.
+
+Inventory management - difficult but there is an electronic system. BHF is working towards a big system to deal with this. Multi-million pound investment. General information about categories of stuff, but not individual items.
+
+Till system for gift-aid.
+
+No gift-aid from corporate donations.
+
+Rag (things which are not in resalable condition) are sold to rag merchants, however rags are extremely unprofitible. 
+
+Greater growth in financial and electrical side than clothes side.
+
+High street - challenging time.
+
+Logistics will be sorted out - logistics solution?
+
+Make personal - eg blood donation, getting text when they save a life. 
+
+Digitally, not much done. Early on digital journey. 
+
+Some donors close to the cause, others only nationwide house clearance provider. Other people is one-off thing.
+
+Competition from commercial clothes companies.
+Innovation with cancer research uk (contactless donation) and oxfam (online shop)
+New goods?
+Augmented Reality - situate product in own home.
+
+Excite senior management.
+
+warehouse - local f & e.
+
+put in postcode - behind the scenes, associate all postcodes with stores.
+
+£3-4 million pounds on ebay. Sells on ebay niche/collectors items. That is shipped to warehouse in leeds. 
+
+Go to store and donate cash, go online and donate cash. Low percentage of money donated on hand.
+
+Guidelines used to set prices for items (robust set of guidelines, however there are some oddball items. Then research is done to identify price). 
+
+Majority of donated items come from everywhere. Individual donations generally bigger in corporate donations. Stronger in south due to population density.
+
+Collection - names, contact details, item, giftaid, other information (eg can item fit in door). Write in physical book when driver collects. Lots of work there for automation (eg automatic reminders, warnings of lateness).
+
+declaration - right to sell.
+
+some things can't be sold - no fire label, stains, damaged etc. Then drivers will have to record that the item wasn't collected, the reason why, they may have to take a picture. Inconsistencies.
+
+Rotating stock - more visibility, more variety.
