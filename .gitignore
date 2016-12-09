@@ -1,2 +1,3 @@
 .project
 *.pyc
+cataloguesite/db.sqlite3
