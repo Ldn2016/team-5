@@ -59,10 +59,6 @@ def get_info(isbn):
 
 
 
-print (get_info("9780849303159"))
-
-
-
 
 
 
