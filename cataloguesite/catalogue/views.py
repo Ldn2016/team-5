@@ -38,7 +38,10 @@ def store_list(request):
     """
     List all the stores that exist.
     """
-    pass
+
+    stores = Store.objects.all()
+    return render(request, 'catalogue/store_list.html', {'stores' : stores})
+
 
 
 def store_detail(request, store_id):
@@ -51,3 +54,4 @@ def store_detail(request, store_id):
     print(len(records))
     books = [(r.book, r.amount) for r in records if r.amount > 0]
     return render(request, 'catalogue/store_detail.html', {'books': books})
+
