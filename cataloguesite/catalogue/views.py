@@ -101,9 +101,12 @@ def contact_page(request):
 
 @csrf_exempt
 def book_post(request):
-    print(request.POST)
-    data = get_book_data(request.POST['isbn'])
-    return render(request, 'catalogue/product_scan_check.html', {'info' : data})
+    try:
+        print(request.POST)
+        data = get_book_data(request.POST['isbn'])
+        return render(request, 'catalogue/product_scan_check.html', {'info' : data})
+    except KeyError:
+        return render(request, 'catalogue/product_scanner.html')
 
 
 def search_by_title(request):
