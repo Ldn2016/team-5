@@ -1,0 +1,9 @@
+{% if books %}
+    <ul>
+    {% for book, amount in books %}
+        <li>{{ book }} - {{ amount }}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No books in stock.</p>
+{% endif %}
