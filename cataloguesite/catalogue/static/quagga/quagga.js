@@ -50,24 +50,42 @@ Quagga.init({
       
   });
 
-    Quagga.onDetected(function(result) {
-        //only registers if isbn valid
-        var code = result.codeResult.code;
-        if (isValidIsbn(code)) {
+    document.getElementById("submit").onclick = function()
+    {
+        var code = document.getElementById("code").value;
+        submitData(code);
+    };
+    
+        
+    var submitData = function(code)
+    {
+        if (isValidIsbn(code))
+        {
             document.getElementById("code").value=code;
             localStorage.setItem('barcode', code);
             Quagga.stop();
+
             $.post("/catalogue/bookpost/", {'isbn' : localStorage.getItem("barcode")}, function(data)
                 {
                     
                     document.open(); 
                 
                 document.write(data);
-                document.close();} );
+                document.close();
+                
+            } );
         }
 
+    }
+
+    Quagga.onDetected(function(result) {
+        //only registers if isbn valid
+        var code = result.codeResult.code;
         
+        submitData(code);
     });
+    
+    
     
     //this is inspired by code on stack overflow
     var isValidIsbn = function(str) {
