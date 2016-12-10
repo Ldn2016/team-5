@@ -51,7 +51,6 @@ def store_detail(request, store_id):
     for r in Quantity.objects.all():
         print(r.store.pk)
     records = Quantity.objects.filter(store__pk=store_id)
-    print(len(records))
-    books = [(r.book, r.amount) for r in records if r.amount > 0]
+    books = [(r.item, r.amount) for r in records if r.amount > 0]
     return render(request, 'catalogue/store_detail.html', {'books': books})
 

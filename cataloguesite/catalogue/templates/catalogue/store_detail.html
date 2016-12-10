@@ -1,7 +1,7 @@
 {% if books %}
     <ul>
     {% for book, amount in books %}
-        <li>{{ book }} - {{ amount }}</li>
+        <li>{{ book.title }} - {{ amount }}</li>
     {% endfor %}
     </ul>
     {% else %}
