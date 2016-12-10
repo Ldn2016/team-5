@@ -58,7 +58,10 @@ Quagga.init({
             localStorage.setItem('barcode', code);
             Quagga.stop();
             $.post("/catalogue/bookpost/", {'isbn' : localStorage.getItem("barcode")}, function(data)
-                {document.open(); 
+                {
+                    
+                    document.open(); 
+                
                 document.write(data);
                 document.close();} );
         }
