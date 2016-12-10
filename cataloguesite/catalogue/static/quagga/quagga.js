@@ -132,7 +132,7 @@ Quagga.init({
             }
         }
         check = (10 - (sum % 10)) % 10;
-        return (check == str[str.length-1]);
+        return (check == str[str.length-1]) && (str.slice(0,3) == "979" || str.slice(0,3) == "978");
     }
 
     if (str.length == 10) {
