@@ -5,7 +5,6 @@ body {
 header {
   padding: 20px 0;
   color : red;
-  background-color: #f2f2f2;
 }
 
 header .row,
@@ -56,6 +55,25 @@ footer li img {
 
 a {
   color: red;
+}
+
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: red;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
 }
 
 
