@@ -66,7 +66,7 @@ def book_detail(request, book_id):
     Get detail for a specific book.
     """
     book = get_object_or_404(Book, id_number=book_id)
-    records = Quantity.objects.filter(book__pk=book_id)
+    records = Quantity.objects.filter(item__pk=book_id)
     stores = [r.store for r in records if r.amount > 0]
     return render(request, 'catalogue/book_detail.html', {'book': book,
                                                           'stores': stores})
