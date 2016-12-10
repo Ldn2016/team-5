@@ -33,8 +33,18 @@ def book_detail(request, book_id):
     book = get_object_or_404(Book, id_number=book_id)
     return render(request, 'catalogue/book_detail.html', {'book': book})
 
+
 def store_list(request):
     """
     List all the stores that exist.
     """
     pass
+
+
+def store_detail(request, store_id):
+    """
+    List the books in store at a store.
+    """
+    records = Quantity.filter(store__pk=store_id)
+    books = [r.book for r in records if r.amount > 0]
+    return render(request, 'catalogue/store_detail.html', {'books': books})
