@@ -83,7 +83,7 @@ Quagga.init({
 
     var submitData = function(code)
     {
-        if (isValidIsbn(code))
+        if (isValidIsbn(code) == true)
         {
             document.getElementById("isbn").value=code;
             localStorage.setItem('barcode', code);
@@ -116,8 +116,6 @@ Quagga.init({
         digit,
         check,
         i;
-
-    str = str.replace(/[^0-9X]/gi, '');
 
     if (str.length != 10 && str.length != 13) {
         return false;
