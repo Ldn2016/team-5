@@ -24,7 +24,7 @@
   <section>
     <!--align center?-->
     <div id="instructions">
-    Please place the camera in front of the barcode. When scanned successsully, we will show you the ISBN and information about the book.
+    Please place the camera in front of the barcode. When scanned successfully, we will show you the ISBN and information about the book.
     </div>
     <div id="interactive" class="viewport"></div>
     <div>
@@ -39,10 +39,6 @@
     <script src="jquery-1.9.0.min.js" type="text/javascript"></script>
     <script src="quagga_dist.js" type="text/javascript"></script>
     <script src="quagga.js" type="text/javascript"></script>
-    <script>
-    $.post("/bookpost", localStorage.getItem("barcode"), function(data) {document.open(); 
-                                   document.write(data);
-                                   document.close();} ); </script>
 
 
   </body>
