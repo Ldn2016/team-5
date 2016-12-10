@@ -2,18 +2,27 @@ import requests
 import json
 import re
 
+isbn_lookup_base = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
+
 
 #todo: include get_book_data() from Phoebe
 def get_book_data(isbn):
     #isbn inputted as string
-    address = "http://isbndb.com/api/v2/json/NAZ4ZQZO/book/"+isbn
+    address = isbn_lookup_base + isbn
     r = requests.get(address)
     data = json.loads(r.text)
     info_to_return = {}
     given_info = data.get("data")[0]
-    info_to_return["author"] = given_info.get("author_data")[0].get("name")
-    info_to_return["title"] = given_info.get("title_latin")
+    info_to_return["author"] = given_info.get("volumeInfo").get("title")
+    info_to_return["title"] = given_info.get("volumeInfo").get("authors")
+    info_to_return["imglink"] = given_info.get("imageLinks").get("thumbnail")
     return (info_to_return)
+
+def create_author_string(authors: list): -> str
+    author_string = ""
+    for author in authors:
+        author_string = author_string + author + ", "
+    aurhor_string = author_string[:-2]
     
 def get_generic_product_data(barcode):
     url = "http://opengtindb.org/index.php?cmd=ean1&ean=" + barcode + "&sq=1"
