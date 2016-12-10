@@ -13,7 +13,12 @@
         <p>{{ book.author }}</p>
       </div>
             <div class="col-sm-4">
-        <img src="{% static 'catalogue/book.png' %}">
+        {% if book.thumbnail %}
+            <img src="{{ book.thumbnail }}">
+        {% else %}
+            <img src="{% static 'catalogue/book.png' %}">
+        {% endif %}
+
       </div>
     </div>
   </section>

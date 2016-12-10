@@ -5,6 +5,7 @@ class Book(models.Model):
     id_number = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=1000)
     author = models.CharField(max_length=1000)
+    thumbnail = models.CharField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return str(self.id_number)
