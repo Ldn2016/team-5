@@ -57,13 +57,28 @@ a {
   color: red;
 }
 
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: red;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
 
 #main_thing {
   padding: 20px 0;
-}
-
-#maincontent {
-    margin: 80px;
 }
 
 #logo {
