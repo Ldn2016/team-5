@@ -26,7 +26,7 @@
 
 <div class="container">
   <h3>Search Results</h3>
-
+  {% if results %}
   {% for result in results %}
     <table class="table">
     <tbody>
@@ -35,9 +35,10 @@
       </tr>
     </tbody>
   	</table>
-{% endfor %} 
-
-
+{% endfor %}
+{% else %}
+<p>No results found!</p>
+{% endif %}
 </div>
 
   <footer class="container">
