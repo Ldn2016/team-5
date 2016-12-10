@@ -7,5 +7,7 @@ urlpatterns = [
         url(r'^storelist/$', views.store_list, name='store_list'),
         url(r'^search/$', views.search, name='search'),
         url(r'^search_by_title/$', views.search_by_title, name='search_by_title'),
+        url(r'^bookpost/$', views.book_post, name='book_post'),
+        url(r'^scanner/$', views.barcode_scanner, name='barcode_scanner'),
 
 ]
