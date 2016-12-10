@@ -18,7 +18,7 @@ def get_book_data(isbn):
     info_to_return["authors"] = data['items'][0]['volumeInfo']['authors'][0]
     return info_to_return
 
-    
+
 
 
 def add_item(item_dict):
