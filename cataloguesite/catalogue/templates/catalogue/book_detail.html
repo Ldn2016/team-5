@@ -1,4 +1,5 @@
 {% extends 'catalogue/base.html' %}
+{% load static %}
 {% block content %}
 
   <section class="container">
@@ -12,7 +13,7 @@
         <p>{{ book.author }}</p>
       </div>
             <div class="col-sm-4">
-        <img src = logos/book.png>
+        <img src="{% static 'catalogue/book.png' %}">
       </div>
     </div>
   </section>
