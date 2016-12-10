@@ -1,3 +1,5 @@
+{% extends 'catalogue/base.html' %}
+{% block content %}
 <h1>{{ store.name }}</h1>
 {% if books %}
     <ul>
@@ -8,3 +10,4 @@
     {% else %}
         <p>No books in stock.</p>
 {% endif %}
+{% endblock %}
