@@ -16,9 +16,9 @@ def get_book_data(isbn):
     info_to_return = {}
     info_to_return["title"] = data['items'][0]['volumeInfo']['title']
     info_to_return["authors"] = data['items'][0]['volumeInfo']['authors'][0]
+    return info_to_return
 
-    #assuming everything worked we now have the title and author. Present this in a pre-populated form for verification by staff.
-    return render(
+    
 
 
 def add_item(item_dict):
@@ -84,7 +84,7 @@ def barcode_scanner(request):
 def book_post(request):
     print(request.POST)
     data = get_book_data(request.POST['isbn'])
-    return HttpResponse(data)
+    return render(request, 'catalogue/product_scan_check.html', {'info' : data})
 
 
 def search_by_title(request):
