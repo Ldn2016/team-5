@@ -63,6 +63,10 @@ a {
   padding: 20px 0;
 }
 
+#maincontent {
+    margin: 80px;
+}
+
 #logo {
   display: inline;
   width:15%;
