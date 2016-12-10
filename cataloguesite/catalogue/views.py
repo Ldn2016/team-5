@@ -61,6 +61,7 @@ def store_detail(request, store_id):
 
 
 def search_by_title(request, query):
+    query = request.GET.get('q', '')
     results = Book.objects.filter(name__contains = query)
     return render(request, 'catalogue/search_results.html', {'results' : results})                       
 
