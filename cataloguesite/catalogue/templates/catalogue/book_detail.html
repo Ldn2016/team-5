@@ -14,13 +14,10 @@
       </div>
       <div class="col-sm-3">
         <h6>Where is it?</h6>
-        <p>book locations</p>
         {% if stores %}
-            <ul>
             {% for store in stores %}
-            <li><a href={% url 'store_detail' store.pk %}>{{ store.name }}</a> </li>
+            <p><a href={% url 'store_detail' store.pk %}>{{ store.name }}</a> </p>
             {% endfor %}
-            </ul>
             {% else %}
         <p>Not found in any stores.</p>
         {% endif %}
