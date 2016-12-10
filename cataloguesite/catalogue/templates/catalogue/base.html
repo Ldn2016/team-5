@@ -16,9 +16,9 @@
       <h1 class="col-sm-8">British Heart Foundation <img src="{% static 'catalogue/bhflogo.png' %}" id = "logo"> </h1>
      <!-- <a class="navbar-left"><img src="bhflogo.png"></a> -->
       <nav class="col-sm-4">
-        <p><a href="#">search</a></p>
-        <p><a href="#">catalogue</a></p>
-        <p><a href="#">contact</a></p>
+          <p><a href="{% url 'search' %}">search</a></p>
+          <p><a href="{% url 'store_list' %}">catalogue</a></p>
+          <p><a href="#">contact</a></p>
       </nav>
     </div>
   </header>
