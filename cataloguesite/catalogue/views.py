@@ -29,7 +29,7 @@ def product_enter(request):
     book_isbn = request.POST['isbn']
     book_thumbnail = request.POST['thumbnail']
     book, _ = Book.objects.get_or_create(id_number=int(book_isbn), title=book_title, author=book_author, thumbnail=book_thumbnail)
-    store, _ = Store.objects.get_or_create(name="Cambridge")
+    store, _ = Store.objects.get_or_create(name=request.POST['store'])
     quantity, _ = Quantity.objects.get_or_create(store=store, item=book,
                                                  defaults={"amount": 0})
     quantity.amount += 1
@@ -107,6 +107,7 @@ def book_post(request):
     try:
         print(request.POST)
         data = get_book_data(request.POST['isbn'])
+        data['store'] = request.POST['store']
         return render(request, 'catalogue/product_scan_check.html', {'info' : data})
     except KeyError:
         return render(request, 'catalogue/product_scanner.html')
