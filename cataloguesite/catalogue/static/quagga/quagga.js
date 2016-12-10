@@ -49,9 +49,34 @@ Quagga.init({
       
   });
 
+    
+    
+    var myRedirect = function(redirectUrl, arg, value) {
+  var form = $('<form action="' + redirectUrl + '" method="post">' +
+  '<input type="hidden" name="'+ arg +'" value="' + value + '"></input>' + '</form>');
+  $('body').append(form);
+  $(form).submit();
+    };
+
+    Quagga.onDetected(function(result) {
+        //only registers if isbn valid
+        var isbn = result.codeResult.code;
+        
+        submitData(isbn);
+    });
+    
+    document.onkeydown = function()
+    {
+        if(window.event.keyCode=='13')
+        {
+            var code = document.getElementById("isbn").value
+            submitData(code);
+        }
+    };
+    
     document.getElementById("submit").onclick = function()
     {
-        var code = document.getElementById("code").value;
+        var code = document.getElementById("isbn").value;
         submitData(code);
     };
     
@@ -60,7 +85,7 @@ Quagga.init({
     {
         if (isValidIsbn(code))
         {
-            document.getElementById("code").value=code;
+            document.getElementById("isbn").value=code;
             localStorage.setItem('barcode', code);
             Quagga.stop();
             myRedirect('/catalogue/bookpost/', 'isbn', code);
@@ -68,20 +93,6 @@ Quagga.init({
         }
 
     }
-    
-    var myRedirect = function(redirectUrl, arg, value) {
-  var form = $('<form action="' + redirectUrl + '" method="post">' +
-  '<input type="hidden" name="'+ arg +'" value="' + value + '"></input>' + '</form>');
-  $('body').append(form);
-  $(form).submit();
-};
-
-    Quagga.onDetected(function(result) {
-        //only registers if isbn valid
-        var code = result.codeResult.code;
-        
-        submitData(code);
-    });
     
     
     
