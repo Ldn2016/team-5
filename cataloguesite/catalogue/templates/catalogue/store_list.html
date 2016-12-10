@@ -2,7 +2,7 @@
 {% for store in stores %}
     <tr>
         <td>
-            <a href="/{{ store.name }}
+            <a href="{% url 'store_detail' store_id=store.pk  %}">{{ store.name }}</a>
         </td>
     </tr>
 {% endfor %}
