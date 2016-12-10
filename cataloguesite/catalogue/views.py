@@ -1,5 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Book, Store, Quantity
+import requests
+import json
+import re
+
+isbn_lookup_base = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
+
 
 
 def add_item(item_dict):
@@ -52,3 +58,14 @@ def store_detail(request, store_id):
     books = [(r.item, r.amount) for r in records if r.amount > 0]
     return render(request, 'catalogue/store_detail.html', {'books': books,
                                                            'store': store, })
+def get_book_data(isbn):
+    #isbn inputted as string
+    address = isbn_lookup_base + isbn
+    r = requests.get(address)
+    data = json.loads(r.text)
+    info_to_return = {}
+    given_info = data.get("data")[0]
+    info_to_return["author"] = given_info.get("volumeInfo").get("title")
+    info_to_return["title"] = given_info.get("volumeInfo").get("authors")
+    info_to_return["imglink"] = given_info.get("imageLinks").get("thumbnail")
+    return (info_to_return)

@@ -1,3 +1,4 @@
 .project
 *.pyc
 cataloguesite/db.sqlite3
+scanner_webform/Something.js
