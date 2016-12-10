@@ -9,18 +9,29 @@
     <meta name="author" content="Sophie Durrant" />
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
 
   <body>
-  <section>
+  
   <header>
+        <table border="0">
+            <tr>
+                <td> <img src="bhf_logo.svg.png" width="10%" height="10%" id="logo"> </td>
+                <td id="title"> BHF Store Scanning System </td>
+            </tr>
+        </table>
+  </header>
+  <section>
     <!--align center?-->
-    Please place the camera in front of the barcode. When scanned successsully, we will show you the ISBN and information about the book. 
-    <div id="interactive" class="viewport" />
+    <div>
+    Please place the camera in front of the barcode. When scanned successsully, we will show you the ISBN and information about the book.
+    </div>
+    <div id="interactive" class="viewport"></div>
+    <div>
     <form>
         <input type="text" name = "code" id="code">
     </form>
+    </div>
     
     </section>
 
