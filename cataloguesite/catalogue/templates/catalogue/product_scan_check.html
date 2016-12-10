@@ -2,15 +2,17 @@
 {% load static %}
 {% block content %}
 
+    <section class="container">
     <div>
     Please check that this information is correct.
 
         <form action="/catalogue/product_enter/" method="post">
-            <label>ISBN: <input type="text" id="isbn" value="{{ info.isbn }}" /></label>
-            <label>Title: <input type="text" id="title" value="{{ info.title }}"/></label>
-            <label>Author: <input type="text" id="author" value="{{ info.author }}" /></label>
+            <label>ISBN: <input type="text" name="isbn" id="isbn" value="{{ info.isbn }}" /></label>
+            <label>Title: <input type="text" id="title" name="title" value="{{ info.title }}"/></label>
+            <label>Author: <input type="text" id="author" name="author" value="{{ info.author }}" /></label>
             <input type="Submit" value="Submit" />
         </form>
     </div>
+    </section>
     
 {% endblock %}

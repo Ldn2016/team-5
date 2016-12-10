@@ -27,7 +27,8 @@ def product_enter(request):
     book_isbn = request.POST['isbn']
 
     new_book = Book(id_number = int(book_isbn), title = book_title, author = book_author)
-    return ""
+    new_book.save()
+    return render(request, 'catalogue/thank_you.html')
     
 
 def add_item(item_dict):
