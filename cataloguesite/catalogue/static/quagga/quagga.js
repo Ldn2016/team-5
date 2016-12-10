@@ -63,19 +63,18 @@ Quagga.init({
             document.getElementById("code").value=code;
             localStorage.setItem('barcode', code);
             Quagga.stop();
-
-            $.post("/catalogue/bookpost/", {'isbn' : localStorage.getItem("barcode")}, function(data)
-                {
-                    
-                    document.open(); 
-                
-                document.write(data);
-                document.close();
-                
-            } );
+            myRedirect('/catalogue/bookpost/', 'isbn', code);
+            
         }
 
     }
+    
+    var myRedirect = function(redirectUrl, arg, value) {
+  var form = $('<form action="' + redirectUrl + '" method="post">' +
+  '<input type="hidden" name="'+ arg +'" value="' + value + '"></input>' + '</form>');
+  $('body').append(form);
+  $(form).submit();
+};
 
     Quagga.onDetected(function(result) {
         //only registers if isbn valid
