@@ -1,6 +1,17 @@
 from django.db import models
 
 
+"""This defines the fields and entities in our database.
+
+The database is a simple relational database representing a many-to-many relationship between books and stores.
+
+A store can have multiple books, while a book can be in multiple stores.
+
+The entity 'quantity' bridges this relationship and represents a single book in a store.
+
+"""
+
+
 class Book(models.Model):
     id_number = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=1000)
@@ -19,7 +30,7 @@ class Store(models.Model):
 
 
 class Quantity(models.Model):
-    item = models.ForeignKey(Book, on_delete=models.CASCADE)  # TODO: figure out what models.CASCADE is for
+    item = models.ForeignKey(Book, on_delete=models.CASCADE) #On deletion of an object in this class, everything connected to it is also deleted.
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     amount = models.IntegerField()
 
