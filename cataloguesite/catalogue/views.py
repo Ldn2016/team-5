@@ -70,20 +70,22 @@ def store_detail(request, store_id):
     books = [(r.item, r.amount) for r in records if r.amount > 0]
     return render(request, 'catalogue/store_detail.html', {'books': books,
                                                            'store': store, })
+
+
 def search(request):
     return render(request, 'catalogue/search.html')
 
 
+def barcode_scanner(request):
+    return render(request, 'catalogue/product_scanner.html')
 
 def book_post(request):
-    print (request.POST)
-    data=get_book_data(request.POST) 
+    print(request.POST)
+    data = get_book_data(request.POST)
     return HttpResponse(data)
 
-    
 
 def search_by_title(request):
-
     query = request.GET.get('q', '')
     results = Book.objects.filter(title__contains = query)
     return render(request, 'catalogue/search_results.html', {'results' : results})                       
