@@ -1,12 +1,25 @@
+
+
 {% extends 'catalogue/base.html' %}
 {% block content %}
-<table>
-{% for store in stores %}
-    <tr>
-        <td>
-            <a href="{% url 'store_detail' store_id=store.pk %}">{{ store.name }}</a>
-        </td>
-    </tr>
+
+
+<div class="container">
+  <h3>Stores found</h3>
+  {% if results %}
+  {% for store in stores %}
+    <table class="table">
+    <tbody>
+      <tr>
+        <td> <a href="{% url 'store_detail' store_id=store.pk %}">{{ store.name }}</a> </td>
+      </tr>
+    </tbody>
+  	</table>
 {% endfor %}
-</table>
+{% else %}
+<p>No results found!</p>
+{% endif %}
+</div>
+
 {% endblock %}
+

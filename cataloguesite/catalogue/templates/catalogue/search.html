@@ -2,21 +2,22 @@
 {% load static %}
 {% block content %}
 
-  <header id = "header">
-        <table border="0">
-            <tr>
-                <td> <img src="bhf_logo.svg.png" width="10%" height="10%" id="logo"> </td>
-                <td id="title"> BHF Store Scanning System </td>
-            </tr>
-        </table>
-  </header>
+<div class="container">
+  <h3>BHF Store Scanning system</h3>
   <section>
     <form action="/catalogue/search_by_title/" method="get">
         <label>Title <input type="text" id="q" name="q" /> <input type="submit"  value="Submit"/></label>
     </form>
     </section>
+<script src="jquery-1.9.0.min.js" type="text/javascript"></script>
+</div>
+
 
     
-    <script src="jquery-1.9.0.min.js" type="text/javascript"></script>
+
+
+
+
+
 
 {% endblock %}
