@@ -18,6 +18,10 @@ header h1 {
   margin: 0;
 }
 
+h3 {
+  color: red;
+}
+
 header nav {
   display: flex;
   justify-content: flex-end;
