@@ -26,10 +26,14 @@ def product_enter(request):
     book_author = request.POST['author']
     book_isbn = request.POST['isbn']
 
-    new_book = Book(id_number = int(book_isbn), title = book_title, author = book_author)
-    new_book.save()
+    book, _ = Book.objects.get_or_create(id_number=int(book_isbn), title=book_title, author=book_author)
+    store, _ = Store.objects.get_or_create(name="Cambridge")
+    quantity, _ = Quantity.objects.get_or_create(store=store, book=book,
+                                                 defaults={"amount": 0})
+    quantity.amount += 1
+    quantity.save()
     return render(request, 'catalogue/thank_you.html')
-    
+
 
 def add_item(item_dict):
     """
