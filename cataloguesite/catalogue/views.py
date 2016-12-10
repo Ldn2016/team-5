@@ -14,10 +14,11 @@ def get_book_data(isbn):
     r = requests.get(address)
     data = json.loads(r.text)
     info_to_return = {}
+    print(data)
     info_to_return["isbn"] = isbn
     info_to_return["title"] = data['items'][0]['volumeInfo']['title']
     info_to_return["author"] = data['items'][0]['volumeInfo']['authors'][0]
-    info_to_return["thumbnail"] = data['items'][0]['volumeInfo']['imagelinks']['thumbnail']
+    info_to_return["thumbnail"] = data['items'][0]['volumeInfo']['imageLinks']['thumbnail']
     return info_to_return
 
 @csrf_exempt
