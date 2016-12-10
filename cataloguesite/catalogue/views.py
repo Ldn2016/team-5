@@ -15,11 +15,8 @@ def get_book_data(isbn):
     data = json.loads(r.text)
     info_to_return = {}
     info_to_return["title"] = data['items'][0]['volumeInfo']['title']
-    info_to_return["authors"] = data['items'][0]['volumeInfo']['authors'][0]
+    info_to_return["author"] = data['items'][0]['volumeInfo']['authors'][0]
     return info_to_return
-
-
-
 
 def add_item(item_dict):
     """
