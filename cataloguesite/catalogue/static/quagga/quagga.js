@@ -64,9 +64,12 @@ Quagga.init({
             document.getElementById("code").value=code;
             localStorage.setItem('barcode', code);
             Quagga.stop();
-            $.post("/catalogue/bookpost/", localStorage.getItem("barcode"), function(data)
-            {
-                document.open(); 
+
+            $.post("/catalogue/bookpost/", {'isbn' : localStorage.getItem("barcode")}, function(data)
+                {
+                    
+                    document.open(); 
+                
                 document.write(data);
                 document.close();
                 
