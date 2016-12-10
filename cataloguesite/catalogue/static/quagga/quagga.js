@@ -57,7 +57,7 @@ Quagga.init({
             document.getElementById("code").value=code;
             localStorage.setItem('barcode', code);
             Quagga.stop();
-            $.post("bookpost", localStorage.getItem("barcode"), function(data)
+            $.post("/bookpost", localStorage.getItem("barcode"), function(data)
                 {document.open(); 
                 document.write(data);
                 document.close();} );
