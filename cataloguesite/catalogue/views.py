@@ -13,10 +13,9 @@ def get_book_data(isbn):
     r = requests.get(address)
     data = json.loads(r.text)
     info_to_return = {}
-    given_info = data.get("data")[0]
-    info_to_return["author"] = given_info.get("volumeInfo").get("title")
-    info_to_return["title"] = given_info.get("volumeInfo").get("authors")
-    info_to_return["imglink"] = given_info.get("imageLinks").get("thumbnail")
+    info_to_return["author"] = data.get("volumeInfo").get("title")
+    info_to_return["title"] = data.get("volumeInfo").get("authors")
+    info_to_return["imglink"] = data.get("imageLinks").get("thumbnail")
     return (info_to_return)
 
 
