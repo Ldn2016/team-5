@@ -42,11 +42,11 @@ Quagga.init({
           return
       }
       console.log("Initialization finished. Ready to start");
-     
+
       Quagga.start();
       document.getElementsByTagName("video")[0].style.width = "90vw";
       document.getElementsByTagName("canvas")[0].style.width="0%";
-      
+
   });
 
     
@@ -79,8 +79,8 @@ Quagga.init({
         var code = document.getElementById("isbn").value;
         submitData(code);
     };
-    
-        
+
+
     var submitData = function(code)
     {
         if (isValidIsbn(code))
@@ -89,13 +89,25 @@ Quagga.init({
             localStorage.setItem('barcode', code);
             Quagga.stop();
             myRedirect('/catalogue/bookpost/', 'isbn', code);
-            
+
         }
 
     }
-    
-    
-    
+
+    var myRedirect = function(redirectUrl, arg, value) {
+  var form = $('<form action="' + redirectUrl + '" method="post">' +
+  '<input type="hidden" name="'+ arg +'" value="' + value + '"></input>' + '</form>');
+  $('body').append(form);
+  $(form).submit();
+};
+
+    Quagga.onDetected(function(result) {
+        //only registers if isbn valid
+        var code = result.codeResult.code;
+
+        submitData(code);
+    });
+
     //this is inspired by code on stack overflow
     var isValidIsbn = function(str) {
 
@@ -140,7 +152,3 @@ Quagga.init({
         return (check == str[str.length-1].toUpperCase());
     }
 }
-
-    
-
-    
