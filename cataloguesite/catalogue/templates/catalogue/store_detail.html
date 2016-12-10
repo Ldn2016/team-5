@@ -4,7 +4,7 @@
 {% if books %}
     <ul>
     {% for book, amount in books %}
-        <li>{{ book.title }} - {{ amount }}</li>
+    <li><a href={% url 'book_detail' book.pk %}>{{ book.title }}</a> - {{ amount }}</li>
     {% endfor %}
     </ul>
     {% else %}
