@@ -6,27 +6,32 @@
 
     <title>index</title>
     <meta name="description" content="" />
-    <meta name="author" content="Christoph Oberhofer" />
+    <meta name="author" content="Sophie Durrant" />
 
     <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
 
   <body>
+  
   <header>
-    <img src="bhf_logo.svg.png" size=10%></img>
-    <section id="container" class="container">
-        <h3>The user's camera</h3>
-        <p>
-            </p>
-            
-                <form>
+        <table border="0">
+            <tr>
+                <td> <img src="bhf_logo.svg.png" width="10%" height="10%" id="logo"> </td>
+                <td id="title"> BHF Store Scanning System </td>
+            </tr>
+        </table>
+  </header>
+  <section>
+    <!--align center?-->
+    <div>
+    Please place the camera in front of the barcode. When scanned successsully, we will show you the ISBN and information about the book.
+    </div>
+    <div id="interactive" class="viewport"></div>
+    <div>
+    <form>
         <input type="text" name = "code" id="code">
     </form>
-    
-    
-    <div id="interactive" class="viewport">
-    
+    </div>
     
     </section>
 

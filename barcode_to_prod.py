@@ -22,7 +22,8 @@ def create_author_string(authors: list): -> str
     author_string = ""
     for author in authors:
         author_string = author_string + author + ", "
-    aurhor_string = author_string[:-2]
+    author_string = author_string[:-2]
+    return author_string
     
 def get_generic_product_data(barcode):
     url = "http://opengtindb.org/index.php?cmd=ean1&ean=" + barcode + "&sq=1"
