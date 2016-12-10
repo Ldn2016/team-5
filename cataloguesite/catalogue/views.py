@@ -37,4 +37,5 @@ def store_list(request):
     """
     List all the stores that exist.
     """
-    pass
+    stores = Store.objects.all()
+    return render(request, 'catalogue/store_list.html', {'stores' : stores})
