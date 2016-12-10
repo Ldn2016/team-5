@@ -1,17 +1,22 @@
 body {
   font-weight: 300;
-  background-color: #111111;
 }
 
 header {
   padding: 20px 0;
   color : red;
+  background-color: #f2f2f2;
 }
 
 header .row,
 footer .row {
   display: flex;
   align-items: center;
+}
+
+footer .row {
+  position: fixed;
+  bottom: 0;
 }
 
 header h1 {
@@ -37,6 +42,7 @@ header p {
 footer {
   font-size: 12px;
   padding: 20px 0;
+  background-color: #f2f2f2;
 }
 
 
