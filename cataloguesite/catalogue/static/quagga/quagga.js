@@ -44,7 +44,6 @@ Quagga.init({
       console.log("Initialization finished. Ready to start");
      
       Quagga.start();
-      document.getElementById("code").value=1;
       document.getElementsByTagName("video")[0].style.width = "90vw";
       document.getElementsByTagName("canvas")[0].style.width="0%";
       

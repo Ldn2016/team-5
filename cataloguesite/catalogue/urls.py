@@ -9,6 +9,6 @@ urlpatterns = [
         url(r'^search_by_title/$', views.search_by_title, name='search_by_title'),
         url(r'^bookpost/$', views.book_post, name='book_post'),
         url(r'^scanner/$', views.barcode_scanner, name='barcode_scanner'),
+        url(r'^product_enter/$', views.product_enter, name='product_enter'),
         url(r'^contact/$', views.contact_page, name='contact_page'),
-
-]
+        ]

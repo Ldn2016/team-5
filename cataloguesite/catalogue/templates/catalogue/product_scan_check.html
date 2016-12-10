@@ -1,7 +1,28 @@
-Please check that this information is correct.
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<form action="/catalogue/product_enter/" method="post">
-    <label>Title: <input type="text" id="title" value="{{ info.title }}"/></label>
-    <label>Author: <input type="text" id="author" value="{{ info.author }}" /></label>
-    <input type="Submit" value="Submit" />
-</form>
+    <title>Scan product</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Sophie Durrant" />
+
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+  </head>
+
+  <body>
+    <div>
+    Please check that this information is correct.
+
+        <form action="/catalogue/product_enter/" method="post">
+            <label>ISBN: <input type="text" id="isbn" value="{{ info.isbn }}" /></label>
+            <label>Title: <input type="text" id="title" value="{{ info.title }}"/></label>
+            <label>Author: <input type="text" id="author" value="{{ info.author }}" /></label>
+            <input type="Submit" value="Submit" />
+        </form>
+    </div>
+
+
+</body>
