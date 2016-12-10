@@ -1,5 +1,52 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'catalogue/bootstrap.min.css' %}" />
-<link rel="stylesheet" type="text/css" href="{% static 'catalogue/main.css' %}" />
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ book.title }}</title>
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'catalogue/main.css' %}" />
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+</head>
+
+<body>
+  <header class="container">
+    <div class="row">
+      <h1 class="col-sm-8">British Heart Foundation <img src="{% static 'catalogue/bhflogo.png' %}" id = "logo"> </h1>
+     <!-- <a class="navbar-left"><img src="bhflogo.png"></a> -->
+      <nav class="col-sm-4">
+        <p><a href="#">search</a></p>
+        <p><a href="#">catalogue</a></p>
+        <p><a href="#">contact</a></p>
+      </nav>
+    </div>
+  </header>
 {% block content %}
 {% endblock %}
+  <footer class="container">
+    <div class="row">
+      <p class="col-sm-4">&copy; Team 5 J P Morgan Code for Good 2016</p>
+      <ul class="col-sm-8">
+        <li class="col-sm-1">
+          <a href = https://twitter.com/TheBHF>
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg">
+          </a>
+        </li>
+        <li class="col-sm-1">
+          <a href = https://www.facebook.com/bhf>
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg">
+          </a>
+        </li>
+        <li class="col-sm-1">
+          <a href = https://www.instagram.com/the_bhf/>
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,3 +1,92 @@
-<h1>{{ book.title }}</h1>
-<p>by {{ book.author }}</p>
-<p>Pls hav picture heer</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ book.title }}</title>
+  <meta charset="utf-8" />
+
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+  <header class="container">
+    <div class="row">
+      <h1 class="col-sm-8">British Heart Foundation <img src="logos/bhflogo.png" id = "logo"> </h1>
+     <!-- <a class="navbar-left"><img src="bhflogo.png"></a> -->
+      <nav class="col-sm-4">
+        <p><a href="#">search</a></p>
+        <p><a href="#">catalogue</a></p>
+        <p><a href="#">contact</a></p>
+      </nav>
+    </div>
+  </header>
+  <section class="container">
+    <div class="row" id="main_thing">
+      <div class="col-sm-4">
+        <h6>Title</h6>
+        <p>{{ book.title }}</p>
+      </div>
+      <div class="col-sm-4">
+        <h6>Author</h6>
+        <p>{{ book.author }}</p>
+      </div>
+            <div class="col-sm-4">
+        <img src = logos/book.png>
+      </div>
+    </div>
+  </section>
+
+<div class="container">
+  <h3>Locations</h3>
+  <p>This book can be found in the following locations:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Location</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Churchill library</td>
+        <td>9999999</td>
+      </tr>
+      <tr>
+        <td>Lapland</td>
+        <td>17</td>
+      </tr>
+      <tr>
+        <td>Cambridge</td>
+        <td>666</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  <footer class="container">
+    <div class="row">
+      <p class="col-sm-4">&copy; Team 5 J P Morgan Code for Good 2016</p>
+      <ul class="col-sm-8">
+        <li class="col-sm-1">
+          <a href = https://twitter.com/TheBHF>
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg">
+          </a>
+        </li>
+        <li class="col-sm-1">
+          <a href = https://www.facebook.com/bhf>
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg">
+          </a>
+        </li>
+        <li class="col-sm-1">
+          <a href = https://www.instagram.com/the_bhf/>
+          <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>
