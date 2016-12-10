@@ -27,8 +27,8 @@ def product_enter(request):
     book_title = request.POST['title']
     book_author = request.POST['author']
     book_isbn = request.POST['isbn']
-
-    book, _ = Book.objects.get_or_create(id_number=int(book_isbn), title=book_title, author=book_author)
+    book_thumbnail = request.POST['thumbnail']
+    book, _ = Book.objects.get_or_create(id_number=int(book_isbn), title=book_title, author=book_author, thumbnail=book_thumbnail)
     store, _ = Store.objects.get_or_create(name=request.POST['store'])
     quantity, _ = Quantity.objects.get_or_create(store=store, item=book,
                                                  defaults={"amount": 0})
@@ -66,7 +66,10 @@ def book_detail(request, book_id):
     Get detail for a specific book.
     """
     book = get_object_or_404(Book, id_number=book_id)
-    return render(request, 'catalogue/book_detail.html', {'book': book})
+    records = Quantity.objects.filter(item__pk=book_id)
+    stores = [r.store for r in records if r.amount > 0]
+    return render(request, 'catalogue/book_detail.html', {'book': book,
+                                                          'stores': stores})
 
 
 def store_list(request):

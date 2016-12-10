@@ -4,15 +4,30 @@
 
   <section class="container">
     <div class="row" id="main_thing">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <h6>Title</h6>
         <p>{{ book.title }}</p>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <h6>Author</h6>
         <p>{{ book.author }}</p>
       </div>
-            <div class="col-sm-4">
+      <div class="col-sm-3">
+        <h6>Where is it?</h6>
+        <p>book locations</p>
+        {% if stores %}
+            <ul>
+            {% for store in stores %}
+            <li><a href={% url 'store_detail' store.pk %}>{{ store.name }}</a> </li>
+            {% endfor %}
+            </ul>
+            {% else %}
+        <p>Not found in any stores.</p>
+        {% endif %}
+
+
+      </div>
+            <div class="col-sm-3">
         {% if book.thumbnail %}
             <img src="{{ book.thumbnail }}">
         {% else %}

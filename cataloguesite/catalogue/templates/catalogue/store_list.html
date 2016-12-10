@@ -1,10 +1,8 @@
-
-
 {% extends 'catalogue/base.html' %}
+{% load static %}
 {% block content %}
 
-
-<div class="container">
+<section class="container">
   <h3>Stores found</h3>
   {% if stores %}
   {% for store in stores %}
@@ -19,7 +17,7 @@
 {% else %}
 <p>No results found!</p>
 {% endif %}
-</div>
+</section>
 
 {% endblock %}
 
