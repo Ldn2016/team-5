@@ -40,17 +40,15 @@ def store_list(request):
     """
 
     stores = Store.objects.all()
-    return render(request, 'catalogue/store_list.html', {'stores' : stores})
-
+    return render(request, 'catalogue/store_list.html', {'stores': stores})
 
 
 def store_detail(request, store_id):
     """
     List the books in store at a store.
     """
-    for r in Quantity.objects.all():
-        print(r.store.pk)
+    store = Store.objects.get(pk=store_id)
     records = Quantity.objects.filter(store__pk=store_id)
     books = [(r.item, r.amount) for r in records if r.amount > 0]
-    return render(request, 'catalogue/store_detail.html', {'books': books})
-
+    return render(request, 'catalogue/store_detail.html', {'books': books,
+                                                           'store': store, })
