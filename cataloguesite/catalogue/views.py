@@ -14,9 +14,17 @@ def get_book_data(isbn):
     r = requests.get(address)
     data = json.loads(r.text)
     info_to_return = {}
+    info_to_return["isbn"] = isbn
     info_to_return["title"] = data['items'][0]['volumeInfo']['title']
     info_to_return["author"] = data['items'][0]['volumeInfo']['authors'][0]
     return info_to_return
+
+def product_enter(request):
+    book_isbn = request.POST['info.isbn']
+    book_title = request.POST['info.title']
+    book_author = request.POST['info.author']
+    new_book = Book(id_number = int(book_isbn), title = book_title, author = book_author)
+    
 
 def add_item(item_dict):
     """
