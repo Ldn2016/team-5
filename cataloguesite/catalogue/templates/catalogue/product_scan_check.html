@@ -1,18 +1,7 @@
+{% extends 'catalogue/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+{% block content %}
 
-    <title>Scan product</title>
-    <meta name="description" content="" />
-    <meta name="author" content="Sophie Durrant" />
-
-    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
-  </head>
-
-  <body>
     <div>
     Please check that this information is correct.
 
@@ -23,6 +12,5 @@
             <input type="Submit" value="Submit" />
         </form>
     </div>
-
-
-</body>
+    
+{% endblock %}
