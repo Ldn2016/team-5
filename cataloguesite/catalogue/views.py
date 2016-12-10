@@ -77,6 +77,9 @@ def search(request):
 def barcode_scanner(request):
     return render(request, 'catalogue/product_scanner.html')
 
+def contact_page(request):
+    return render(request, 'catalogue/contact_page.html')
+
 @csrf_exempt
 def book_post(request):
     print(request.POST)
