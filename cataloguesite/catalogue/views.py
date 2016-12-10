@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse 
 from .models import Book, Store, Quantity
 import requests
@@ -78,6 +79,7 @@ def search(request):
 def barcode_scanner(request):
     return render(request, 'catalogue/product_scanner.html')
 
+@csrf_exempt
 def book_post(request):
     print(request.POST)
     data = get_book_data(request.POST)
