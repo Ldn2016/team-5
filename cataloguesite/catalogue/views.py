@@ -19,11 +19,15 @@ def get_book_data(isbn):
     info_to_return["author"] = data['items'][0]['volumeInfo']['authors'][0]
     return info_to_return
 
+@csrf_exempt
 def product_enter(request):
-    book_isbn = request.POST['info.isbn']
-    book_title = request.POST['info.title']
-    book_author = request.POST['info.author']
+    print(request.POST)
+    book_title = request.POST['title']
+    book_author = request.POST['author']
+    book_isbn = request.POST['isbn']
+
     new_book = Book(id_number = int(book_isbn), title = book_title, author = book_author)
+    return ""
     
 
 def add_item(item_dict):
