@@ -1,18 +1,10 @@
 from django.db import models
 
 
-class Item(models.Model):
-    id_number = models.IntegerField()
-    ITEM_KINDS = (
-            ('BK', 'book'),
-            ('CD', 'CD'),
-            ('ZZ', 'other')
-    )
-    kind = models.CharField(max_length=2, choices=ITEM_KINDS)
-    name = models.CharField(max_length=1000)
-    author = models.CharField(max_length=1000, null=True, blank=True)
-
-    other_data = models.CharField(max_length=10**4)
+class Book(models.Model):
+    id_number = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=1000)
+    author = models.CharField(max_length=1000)
 
     def __str__(self):
         return str(self.id_number)
@@ -26,7 +18,7 @@ class Store(models.Model):
 
 
 class Quantity(models.Model):
-    item = models.ForeignKey(Item, on_delete=models.CASCADE)  # TODO: figure out what models.CASCADE is for
+    item = models.ForeignKey(Book, on_delete=models.CASCADE)  # TODO: figure out what models.CASCADE is for
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     amount = models.IntegerField()
 
