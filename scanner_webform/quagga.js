@@ -211,7 +211,9 @@ Quagga.init({
     Quagga.onDetected(function(result) {
         var code = result.codeResult.code;
         document.getElementById("code").value=code;
+        localStorage.setItem('barcode', code);
         Quagga.stop();
+        
     });
 
 
