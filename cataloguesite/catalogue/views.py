@@ -27,8 +27,8 @@ def product_enter(request):
     book_title = request.POST['title']
     book_author = request.POST['author']
     book_isbn = request.POST['isbn']
-
-    book, _ = Book.objects.get_or_create(id_number=int(book_isbn), title=book_title, author=book_author)
+    book_thumbnail = request.POST['thumbnail']
+    book, _ = Book.objects.get_or_create(id_number=int(book_isbn), title=book_title, author=book_author, thumbnail=book_thumbnail)
     store, _ = Store.objects.get_or_create(name="Cambridge")
     quantity, _ = Quantity.objects.get_or_create(store=store, item=book,
                                                  defaults={"amount": 0})
