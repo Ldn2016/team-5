@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<head>
   <title>{{ book.title }}</title>
   <meta charset="utf-8" />
 
@@ -23,8 +22,10 @@
       </nav>
     </div>
   </header>
+<div id="maincontent">
 {% block content %}
 {% endblock %}
+</div>
   <footer class="container">
     <div class="row">
       <p class="col-sm-4">&copy; Team 5 J P Morgan Code for Good 2016</p>
