@@ -1,0 +1,10 @@
+<table>
+{% for result in results %}
+    <tr>
+        <td>
+            <a href="{% url 'book_detail' book_id=book.pk  %}">{{ result.title }}</a> by {{ result.author }}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
