@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse 
 from .models import Book, Store, Quantity
 import requests
 import json
@@ -6,6 +7,17 @@ import re
 
 isbn_lookup_base = "https://www.googleapis.com/books/v1/volumes?q=isbn:"
 
+def get_book_data(isbn):
+    #isbn inputted as string
+    address = isbn_lookup_base + isbn
+    r = requests.get(address)
+    data = json.loads(r.text)
+    info_to_return = {}
+    given_info = data.get("data")[0]
+    info_to_return["author"] = given_info.get("volumeInfo").get("title")
+    info_to_return["title"] = given_info.get("volumeInfo").get("authors")
+    info_to_return["imglink"] = given_info.get("imageLinks").get("thumbnail")
+    return (info_to_return)
 
 
 def add_item(item_dict):
@@ -61,19 +73,18 @@ def store_detail(request, store_id):
 def search(request):
     return render(request, 'catalogue/search.html')
 
+
+
+def book_post(request):
+    print (request.POST)
+    data=get_book_data(request.POST) 
+    return HttpResponse(data)
+
+    
+
 def search_by_title(request):
+
     query = request.GET.get('q', '')
     results = Book.objects.filter(name__contains = query)
     return render(request, 'catalogue/search_results.html', {'results' : results})                       
 
-def get_book_data(isbn):
-    #isbn inputted as string
-    address = isbn_lookup_base + isbn
-    r = requests.get(address)
-    data = json.loads(r.text)
-    info_to_return = {}
-    given_info = data.get("data")[0]
-    info_to_return["author"] = given_info.get("volumeInfo").get("title")
-    info_to_return["title"] = given_info.get("volumeInfo").get("authors")
-    info_to_return["imglink"] = given_info.get("imageLinks").get("thumbnail")
-    return (info_to_return)
