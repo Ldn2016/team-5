@@ -14,10 +14,11 @@ def get_book_data(isbn):
     r = requests.get(address)
     data = json.loads(r.text)
     info_to_return = {}
-    info_to_return["author"] = data.get("volumeInfo").get("title")
-    info_to_return["title"] = data.get("volumeInfo").get("authors")
-    info_to_return["imglink"] = data.get("imageLinks").get("thumbnail")
-    return (info_to_return)
+    info_to_return["title"] = data['items'][0]['volumeInfo']['title']
+    info_to_return["authors"] = data['items'][0]['volumeInfo']['authors'][0]
+
+    #assuming everything worked we now have the title and author. Present this in a pre-populated form for verification by staff.
+    return render(
 
 
 def add_item(item_dict):
@@ -82,7 +83,7 @@ def barcode_scanner(request):
 @csrf_exempt
 def book_post(request):
     print(request.POST)
-    data = get_book_data(request.POST)
+    data = get_book_data(request.POST['isbn'])
     return HttpResponse(data)
 
 
