@@ -18,7 +18,7 @@ def get_book_data(isbn):
     info_to_return["authors"] = data['items'][0]['volumeInfo']['authors'][0]
 
     #assuming everything worked we now have the title and author. Present this in a pre-populated form for verification by staff.
-    return render(
+    #return render() TODO: make this work
 
 
 def add_item(item_dict):
