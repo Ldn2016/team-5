@@ -85,6 +85,6 @@ def book_post(request):
 def search_by_title(request):
 
     query = request.GET.get('q', '')
-    results = Book.objects.filter(name__contains = query)
+    results = Book.objects.filter(title__contains = query)
     return render(request, 'catalogue/search_results.html', {'results' : results})                       
 
